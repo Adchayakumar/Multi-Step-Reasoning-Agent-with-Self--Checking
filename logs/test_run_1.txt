@@ -1,0 +1,305 @@
+
+=== EASY TESTS ===
+
+--- Test 1 ---
+Question: A train leaves at 12:30 and arrives at 18:05. How long is the journey?
+Final JSON:
+{
+  "answer": "5 hours 35 minutes",
+  "status": "success",
+  "reasoning_visible_to_user": "The train leaves at 12:30, which is 12*60 + 30 = 750 minutes from midnight. The train arrives at 18:05, which is 18*60 + 5 = 1085 minutes from midnight. The journey duration is 1085 - 750 = 335 minutes.  335 minutes is equal to 5 hours and 35 minutes",
+  "metadata": {
+    "plan": "1. Convert the start and end times to minutes from midnight.\n2. Subtract the start time from the end time to find the journey duration in minutes.\n3. Convert the journey duration from minutes to hours and minutes.\n4. Present the final answer in the format \"X hours Y minutes\".",
+    "checks": [
+      {
+        "check_name": "start_time_minutes",
+        "passed": true,
+        "details": "12:30 is correctly converted to 750 minutes from midnight."
+      },
+      {
+        "check_name": "end_time_minutes",
+        "passed": true,
+        "details": "18:05 is correctly converted to 1085 minutes from midnight."
+      },
+      {
+        "check_name": "duration_minutes",
+        "passed": true,
+        "details": "The difference 1085-750 = 335 minutes is correctly calculated."
+      },
+      {
+        "check_name": "minutes_to_hours",
+        "passed": true,
+        "details": "335 minutes is correctly converted to 5 hours and 35 minutes."
+      },
+      {
+        "check_name": "answer_match",
+        "passed": true,
+        "details": "The calculated duration matches the proposed answer."
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+--- Test 2 ---
+Question: Alice has 3 red apples and twice as many green apples as red. How many apples does she have in total?
+Final JSON:
+{
+  "answer": "9",
+  "status": "success",
+  "reasoning_visible_to_user": "First, Alice has 3 * 2 = 6 green apples. In total, she has 3 + 6 = 9 apples.",
+  "metadata": {
+    "plan": "1. Find the number of green apples by multiplying the number of red apples by 2.\n2. Calculate the total number of apples by adding the number of red apples and green apples.\n3. State the final answer.",
+    "checks": [
+      {
+        "check_name": "Green Apples",
+        "passed": true,
+        "details": "Calculates the number of green apples: 3 * 2 = 6"
+      },
+      {
+        "check_name": "Total Apples",
+        "passed": true,
+        "details": "Calculates the total number of apples: 3 + 6 = 9"
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+--- Test 3 ---
+Question: If you have 15 chocolates and give 7 to a friend, how many are left?
+Final JSON:
+{
+  "answer": "8",
+  "status": "success",
+  "reasoning_visible_to_user": "I started with 15 chocolates and gave away 7. Subtracting 7 from 15 gives me 8 chocolates left.",
+  "metadata": {
+    "plan": "1. Identify the initial number of chocolates: 15.\n2. Identify the number of chocolates given away: 7.\n3. Subtract the number of chocolates given away from the initial number: 15 - 7.\n4. Calculate the result of the subtraction.\n5. State the answer as the number of chocolates left.",
+    "checks": [
+      {
+        "check_name": "subtraction_correct",
+        "passed": true,
+        "details": "15 - 7 = 8 is correct."
+      },
+      {
+        "check_name": "consistent_units",
+        "passed": true,
+        "details": "The units are consistent (chocolates)."
+      },
+      {
+        "check_name": "problem_solved",
+        "passed": true,
+        "details": "The explanation correctly explains the subtraction to solve the problem."
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+--- Test 4 ---
+Question: A movie starts at 09:45 and ends at 11:10. How long does it last?
+Final JSON:
+{
+  "answer": "1 hours 25 minutes",
+  "status": "success",
+  "reasoning_visible_to_user": "The movie starts at 09:45, which is (9 * 60) + 45 = 540 + 45 = 585 minutes since midnight. It ends at 11:10, which is (11 * 60) + 10 = 660 + 10 = 670 minutes since midnight.  The duration is 670 - 585 = 85 minutes.  This is 1 hour and 25 minutes.",
+  "metadata": {
+    "plan": "1. Convert the start and end times to minutes since midnight.\n2. Subtract the start time in minutes from the end time in minutes to find the duration in minutes.\n3. Convert the duration in minutes to hours and remaining minutes.\n4. Format the answer as \"X hours Y minutes\".",
+    "checks": [
+      {
+        "check_name": "start_time_minutes",
+        "passed": true,
+        "details": "09:45 converted to 585 minutes since midnight"
+      },
+      {
+        "check_name": "end_time_minutes",
+        "passed": true,
+        "details": "11:10 converted to 670 minutes since midnight"
+      },
+      {
+        "check_name": "duration_minutes",
+        "passed": true,
+        "details": "Duration is 670 - 585 = 85 minutes"
+      },
+      {
+        "check_name": "convert_to_hours_minutes",
+        "passed": true,
+        "details": "85 minutes is converted to 1 hour 25 minutes"
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+--- Test 5 ---
+Question: Tom has 8 pens and buys 5 more. How many pens does he have now?
+Final JSON:
+{
+  "answer": "13",
+  "status": "success",
+  "reasoning_visible_to_user": "Tom started with 8 pens and bought 5 more.  Adding these together, 8 + 5 = 13. Tom now has 13 pens.",
+  "metadata": {
+    "plan": "1. Identify the initial number of pens: 8.\n2. Identify the number of pens bought: 5.\n3. Add the number of pens bought to the initial number of pens: 8 + 5.\n4. Calculate the sum: 13.\n5. State the final answer.",
+    "checks": [
+      {
+        "check_name": "Addition",
+        "passed": true,
+        "details": "8 + 5 = 13"
+      },
+      {
+        "check_name": "Problem Solution",
+        "passed": true,
+        "details": "Correctly added the number of initial pens and the number of pens bought."
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+=== TRICKY TESTS ===
+
+--- Test 1 ---
+Question: Ravi has 20 marbles. He gives 4 to Sita and 3 to Arjun, then buys 5 more. How many marbles does he have now?
+Final JSON:
+{
+  "answer": "18",
+  "status": "success",
+  "reasoning_visible_to_user": "Ravi starts with 20 marbles. After giving away 4 to Sita and 3 to Arjun, he has 20 - 4 - 3 = 13 marbles. Then he buys 5 more, so he has 13 + 5 = 18 marbles.",
+  "metadata": {
+    "plan": "1. Start with Ravi's initial number of marbles: 20.\n2. Subtract the marbles given to Sita: 20 - 4 = 16.\n3. Subtract the marbles given to Arjun: 16 - 3 = 13.\n4. Add the marbles Ravi buys: 13 + 5 = 18.\n5. The final number of marbles is 18.",
+    "checks": [
+      {
+        "check_name": "Initial Count",
+        "passed": true,
+        "details": "Verifies Ravi starts with 20 marbles."
+      },
+      {
+        "check_name": "Gifting Calculation",
+        "passed": true,
+        "details": "Verifies 20 - 4 - 3 = 13."
+      },
+      {
+        "check_name": "Buying More",
+        "passed": true,
+        "details": "Verifies 13 + 5 = 18."
+      },
+      {
+        "check_name": "Final Count",
+        "passed": true,
+        "details": "The final count of 18 is correct."
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+--- Test 2 ---
+Question: A shop sells boxes with 6 or 8 cookies each. Rohan buys 3 boxes and gets 22 cookies in total. How many boxes of each type might he have bought?
+Final JSON:
+{
+  "answer": "Rohan bought 1 box of 6 cookies and 2 boxes of 8 cookies.",
+  "status": "success",
+  "reasoning_visible_to_user": "Let x = number of 6-cookie boxes and y = number of 8-cookie boxes. We have x + y = 3 and 6x + 8y = 22. From the first equation, x = 3 - y. Substituting into the second equation, we get 6(3 - y) + 8y = 22, which simplifies to 18 - 6y + 8y = 22, so 2y ",
+  "metadata": {
+    "plan": "1. Let x be the number of boxes with 6 cookies and y be the number of boxes with 8 cookies.\n2. Write the equations: x + y = 3 and 6x + 8y = 22.\n3. Solve the system of equations for x and y.\n4. Check that x and y are non-negative integers.\n5. State the possible values for x and y.",
+    "checks": [
+      {
+        "check_name": "setup_equations",
+        "passed": true,
+        "details": "Correctly sets up the system of equations: x + y = 3 and 6x + 8y = 22."
+      },
+      {
+        "check_name": "substitution",
+        "passed": true,
+        "details": "Correctly substitutes x = 3 - y into the second equation."
+      },
+      {
+        "check_name": "solving_for_y",
+        "passed": true,
+        "details": "Correctly solves for y: 2y = 4, so y = 2."
+      },
+      {
+        "check_name": "solving_for_x",
+        "passed": true,
+        "details": "Correctly solves for x: x = 3 - 2 = 1."
+      },
+      {
+        "check_name": "verification",
+        "passed": true,
+        "details": "Verifies the solution: 1 + 2 = 3 and 6(1) + 8(2) = 22."
+      }
+    ],
+    "retries": 0
+  }
+}
+Verifier passed: True
+Agent retries: 0
+
+--- Test 3 ---
+Question: A meeting needs exactly 30 minutes. Free slots are 10:00–10:30, 10:30–11:00, 10:45–11:15. Which slots can fit the meeting?
+Final JSON:
+{
+  "answer": "10:00\u201310:30, 10:30\u201311:00",
+  "status": "success",
+  "reasoning_visible_to_user": "First, convert the times to minutes since midnight. 10:00 is 600, 10:30 is 630, 11:00 is 660 and 11:15 is 675. The durations are then 630-600=30, 660-630=30 and 675-645=30. The slots that have at least 30 minutes are 10:00\u201310:30 and 10:30\u201311:00.",
+  "metadata": {
+    "plan": "1. Convert the time ranges to start and end times in minutes from 0:00.\n2. Calculate the duration of each free slot.\n3. Check if each slot's duration is greater than or equal to 30 minutes.\n4. List the slots that meet the duration requirement.",
+    "checks": [
+      {
+        "check_name": "slot_1",
+        "passed": true,
+        "details": "10:00-10:30 is exactly 30 minutes"
+      },
+      {
+        "check_name": "slot_2",
+        "passed": true,
+        "details": "10:30-11:00 is exactly 30 minutes"
+      },
+      {
+        "check_name": "slot_3",
+        "passed": true,
+        "details": "10:45-11:15 is exactly 30 minutes"
+      },
+      {
+        "check_name": "completeness",
+        "passed": false,
+        "details": "The proposed answer omits the third valid slot."
+      },
+      {
+        "check_name": "Slot 1 duration",
+        "passed": true,
+        "details": "10:00-10:30 is 30 minutes."
+      },
+      {
+        "check_name": "Slot 2 duration",
+        "passed": true,
+        "details": "10:30-11:00 is 30 minutes."
+      },
+      {
+        "check_name": "Slot 3 duration",
+        "passed": true,
+        "details": "10:45-11:15 is 30 minutes."
+      },
+      {
+        "check_name": "Slot selection",
+        "passed": true,
+        "details": "Selecting slots that have a duration of 30 minutes."
+      }
+    ],
+    "retries": 1
+  }
+}
+Verifier passed: False
+Agent retries: 1
