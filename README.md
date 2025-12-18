@@ -103,6 +103,13 @@ LLM parameters (e.g. `temperature`, `max_output_tokens`) can be adjusted in the 
 
 ## 5. Setup and How to Run
 
+### 5.0 Clone repository
+
+```bash
+git clone https://github.com/Adchayakumar/Multi-Step-Reasoning-Agent-with-Self--Checking.git
+ 
+```
+
 ### 5.1 Install dependencies
 
 ```bash
